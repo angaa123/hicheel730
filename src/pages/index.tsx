@@ -1,10 +1,11 @@
-import Header from "@/components/header.jsx"
-
+import Header from "@/components/header.jsx";
+import MainPage from "@/components/mainPage.jsx";
 
 export default function Home() {
-  return (
-    <main className="">
-      <Header></Header>
-    </main>
-  );
+	return (
+		<>
+			<Header></Header>
+			<MainPage></MainPage>
+		</>
+	);
 }
