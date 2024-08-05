@@ -1,7 +1,7 @@
 import React from "react";
-import MainSlider from "@/components/MainSlider";
+import MainSlider from "@/components/mainSlider";
 
-const MainSlider = () => {
+const MainPage = () => {
 	return (
 		<div>
 			<MainSlider></MainSlider>
