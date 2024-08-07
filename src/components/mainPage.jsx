@@ -3,7 +3,7 @@ import MainSlider from "@/components/mainSlider";
 
 const MainPage = () => {
 	return (
-		<div>
+		<div className=" flex justify-center">
 			<MainSlider></MainSlider>
 		</div>
 	);
