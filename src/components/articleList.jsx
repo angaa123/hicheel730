@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 const baseURL = "https://dev.to/api/articles";
-function DevToAPI() {
+function ArticleList() {
 	const [articles, setArticles] = React.useState([]);
 	const [loading, setLoading] = React.useState(true);
 	const [error, setError] = React.useState(false);
@@ -27,7 +27,7 @@ function DevToAPI() {
 	if (error) return <div>Error!</div>;
 	return (
 		<div>
-			<ul className="cardContainer flex flex-col md:flex-row items-center gap-3">
+			<ul className="cardContainer flex flex-col md:flex-row items-center md:justify-between">
 				{articles.slice(0, 4).map((article) => (
 					<li key={article.id}>
 						<Link href={article.url}>
@@ -53,4 +53,4 @@ function DevToAPI() {
 		</div>
 	);
 }
-export default DevToAPI;
+export default ArticleList;

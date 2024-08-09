@@ -5,7 +5,7 @@ import Trending from "@/components/trending.jsx";
 
 export default function Home() {
 	return (
-		<div className=" ">
+		<div className="flex flex-col gap-24">
 			<Header />
 			<MainPage />
 		</div>
