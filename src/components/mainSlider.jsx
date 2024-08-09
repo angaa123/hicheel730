@@ -5,16 +5,23 @@ const mockImg =
 
 const MainSlider = () => {
 	return (
-		<div className="hidden md:flex md:w-5/6">
-			<div className="relative w-full">
+		<div className="hidden md:flex w-full justify-center ">
+			<div className="relative w-5/6 ">
 				<div
-					className="relative bg-cover bg-center bg-no-repeat p-8 text-white h-screen"
+					className="relative bg-cover bg-center bg-no-repeat p-8 h-[800px] w-full rounded-3xl"
 					style={{ backgroundImage: `url(${mockImg})` }}
 				>
-					<div className="absolute bottom-2 left-2 rounded-md bg-slate-600 z-10 h-1/2 w-1/3 p-4">
-						<p className=" bg-indigo-700 ">Technology</p>
-						<h1>Grid system for better Design User Interface</h1>
-						<p>date</p>
+					<div className="absolute bottom-2 left-2 rounded-md bg-white  h-max w-1/3  m-4 ">
+						<div className=" m-10 flex flex-col gap-4">
+							<p className=" bg-indigo-700 w-max border py-2 px-4 text-white text-sm font-medium rounded-xl">
+								Technology
+							</p>
+							<h1 className=" text-4xl font-bold text-gray-900">
+								Grid system for better Design User Interface
+							</h1>
+						</div>
+
+						<p className=" m-10">August 20, 2022</p>
 					</div>
 				</div>
 			</div>
