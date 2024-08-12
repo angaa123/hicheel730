@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import TagListAPI from "@/components/tagListAPI";
 import CardBlogPost from "@/components/cardBlogPost";
+import {TagContext} from './tagContext'
 
 const AllBolgPost = () => {
 	return (
@@ -11,6 +12,7 @@ const AllBolgPost = () => {
 				<div className=" md: justify-between">
 					<div className=" hidden md:flex gap-2 mb-5">
 						<Link href="https://dev.to/">All</Link>
+
 						<TagListAPI />
 					</div>
 					<CardBlogPost />
