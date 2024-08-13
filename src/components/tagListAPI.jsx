@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { TagContext } from './tagContext';
+import { TagContext } from "./tagContext";
 import CardBlogPost from "./cardBlogPost";
 
-const baseURL = "https://dev.to/api/tags?per_page=25";
+const baseURL = "https://dev.to/api/tags?per_page=20";
 
 const TagListAPI = () => {
 	const [tags, setTags] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [tagListValue, setTagListValue] = useState([]);
-	let a= []
+	let a = [];
 	useEffect(() => {
 		const fetchTags = async () => {
 			try {
@@ -42,38 +42,41 @@ const TagListAPI = () => {
 				if (updatedTag.checker) {
 					if (!tagListValue.includes(updatedTag.name)) {
 						setTagListValue([...tagListValue, updatedTag.name]);
-						
 					}
 				} else {
-					setTagListValue(tagListValue.filter(name => name !== updatedTag.name));
+					setTagListValue(
+						tagListValue.filter((name) => name !== updatedTag.name)
+					);
 				}
-				
+
 				return updatedTag;
 			}
 			return tag;
 		});
-		
+
 		setTags(updatedTags);
 	};
 
 	return (
-		<div className="flex flex-col gap-2">
-			<div className="flex">{tags.map((tag, index) => (
-				<p
-					key={tag.name}
-					className="px-2 rounded-full text-center h-7"
-					onClick={() => handleTagClick(index)}
-					style={{
-						backgroundColor: tag.checker ? tag.bg_color_hex : "#fff",
-						color: tag.checker ? tag.text_color_hex : "#000000",
-					}}
-				>
-					{tag.name}
-				</p>
-			))}</div>
-			
+		<div className="flex flex-col gap-2 w-full justify-center">
+			<div className=" hidden md:flex w-full overflow-auto">
+				{tags.map((tag, index) => (
+					<p
+						key={tag.name}
+						className="px-2 rounded-full text-center h-7"
+						onClick={() => handleTagClick(index)}
+						style={{
+							backgroundColor: tag.checker ? tag.bg_color_hex : "#fff",
+							color: tag.checker ? tag.text_color_hex : "#000000",
+						}}
+					>
+						{tag.name}
+					</p>
+				))}
+			</div>
+			{console.log(tagListValue)}
 			<TagContext.Provider value={tagListValue}>
-			<CardBlogPost />
+				<CardBlogPost />
 			</TagContext.Provider>
 		</div>
 	);

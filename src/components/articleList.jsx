@@ -5,6 +5,7 @@ function ArticleList() {
 	const [articles, setArticles] = React.useState([]);
 	const [loading, setLoading] = React.useState(true);
 	const [error, setError] = React.useState(false);
+
 	React.useEffect(() => {
 		async function fetchArticles() {
 			try {
@@ -18,16 +19,17 @@ function ArticleList() {
 				setError(true);
 			}
 			setLoading(false);
-			console.log(articles);
 		}
+
 		fetchArticles();
 	}, []);
 
 	if (loading) return <div>Loading...</div>;
 	if (error) return <div>Error!</div>;
+
 	return (
 		<div>
-			<ul className="cardContainer flex flex-col flex-wrap gap-y-5 gap-5 md:flex-row items-center md:justify-between md:w-full ">
+			<ul className="cardContainer flex flex-col flex-wrap gap-y-5 gap-5 md:flex-row items-center md:justify-between md:w-full">
 				{articles.slice(0, 4).map((article) => (
 					<li key={article.id} className=" ">
 						<Link href={article.url} className="w-screen md:w-3/12">
@@ -39,8 +41,11 @@ function ArticleList() {
 							>
 								<div className=" bottom-2 max-w-96 w-min">
 									<div className="flex">
-										{article.tag_list.map((tag) => (
-											<p className="bg-indigo-700 w-max py-1 px-2 text-white text-sm font-medium rounded-xl mb-4">
+										{article.tag_list.map((tag, index) => (
+											<p
+												key={index}
+												className="bg-indigo-700 w-max py-1 px-2 text-white text-sm font-medium rounded-xl mb-4"
+											>
 												{tag}
 											</p>
 										))}
