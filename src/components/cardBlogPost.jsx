@@ -18,7 +18,6 @@ function CardBlogPost() {
 				const response = await fetch(url);
 				const json = await response.json();
 				setArticles(json);
-				console.log(baseURLWithTags);
 			} catch (error) {
 				console.log(error);
 				setError(true);
@@ -31,8 +30,10 @@ function CardBlogPost() {
 	if (error) return <div>Error!</div>;
 	return (
 		<div>
+			{console.log(baseURLWithTags)}
 			<ul className="cardContainer cardContainer flex flex-col flex-wrap gap-y-5 gap-5 md:flex-row items-center md:justify-between md:w-full ">
 				{articles.map((article) => (
+					///////////
 					<li key={article.id} className=" ">
 						<Link href={article.url} className="w-screen md:w-3/12 ">
 							<div
@@ -52,7 +53,6 @@ function CardBlogPost() {
 											</p>
 										))}
 									</div>
-
 									<h1 className="text-white text-xl md:text-2xl font-extrabold ">
 										{article.title}
 									</h1>
@@ -60,6 +60,7 @@ function CardBlogPost() {
 							</div>
 						</Link>
 					</li>
+					/////////////
 				))}
 			</ul>
 		</div>

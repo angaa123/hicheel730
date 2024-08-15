@@ -14,7 +14,6 @@ const AllBolgPost = () => {
 						<Link href="https://dev.to/" className="hidden md:flex">
 							All
 						</Link>
-
 						<TagListAPI />
 					</div>
 				</div>

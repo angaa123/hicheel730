@@ -24,6 +24,9 @@ const MainSlider = () => {
 						<p className=" m-10">August 20, 2022</p>
 					</div>
 				</div>
+				<div className="felx  w-full ">
+					<h1 className=""></h1>
+				</div>
 			</div>
 		</div>
 	);

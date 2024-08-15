@@ -10,24 +10,24 @@ const TagListAPI = () => {
 	const [error, setError] = useState(null);
 	const [tagListValue, setTagListValue] = useState([]);
 	let a = [];
-	useEffect(() => {
-		const fetchTags = async () => {
-			try {
-				const response = await fetch(baseURL);
-				if (!response.ok) {
-					throw new Error("Network response was not ok");
-				}
-				const json = await response.json();
-				// Initialize checker property to false for each tag
-				const initializedTags = json.map((tag) => ({ ...tag, checker: false }));
-				setTags(initializedTags);
-			} catch (err) {
-				setError(`Fetch error: ${err.message}`);
-				console.error("Fetch error:", err);
-			} finally {
-				setLoading(false);
+	const fetchTags = async () => {
+		try {
+			const response = await fetch(baseURL);
+			if (!response.ok) {
+				throw new Error("Network response was not ok");
 			}
-		};
+			const json = await response.json();
+			// Initialize checker property to false for each tag
+			const initializedTags = json.map((tag) => ({ ...tag, checker: false }));
+			setTags(initializedTags);
+		} catch (err) {
+			setError(`Fetch error: ${err.message}`);
+			console.error("Fetch error:", err);
+		} finally {
+			setLoading(false);
+		}
+	};
+	useEffect(() => {
 		fetchTags();
 	}, []); // Empty dependency array ensures this runs once after the initial render
 
