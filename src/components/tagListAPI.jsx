@@ -75,9 +75,7 @@ const TagListAPI = () => {
 				))}
 			</div>
 			{console.log(tagListValue)}
-			<TagContext.Provider value={tagListValue}>
-				<CardBlogPost />
-			</TagContext.Provider>
+			<CardBlogPost tags={tagListValue} />
 		</div>
 	);
 };

@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import { useContext } from "react";
-import { TagContext } from "./tagContext";
+// import { useContext } from "react";
+// import { TagContext } from "./tagContext";
 // const baseURL = "https://dev.to/api/articles";
 const baseURLWithTags = (tags) =>
 	`https://dev.to/api/articles?tag=${tags.map((tag) => tag).join(", ")}`;
 
-function CardBlogPost() {
-	const tags = useContext(TagContext); // tags is array of string
+function CardBlogPost({ tags }) {
+	// const tags = useContext(TagContext); // tags is array of string
 	const [articles, setArticles] = React.useState([]);
 	const [loading, setLoading] = React.useState(true);
 	const [error, setError] = React.useState(false);
